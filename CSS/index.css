@@ -305,5 +305,12 @@ body {
 .carousel .selected {
   width: 100%;
   display: block;
-  transition: opacity 1s ease-in-out;
+  margin: 0 0 0 0;
+  transition: margin 1s ease-in-out;
+}
+.carousel .slide-right {
+  margin-left: 200%;
+}
+.carousel .slide-left {
+  margin-left: -200%;
 }

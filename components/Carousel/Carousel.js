@@ -1,5 +1,5 @@
 let state = 1;
-console.log(state, "STATE")
+
 class Carousel {
   constructor(element) {
     this.element = element;
@@ -39,11 +39,6 @@ class Carousel {
 
 new Carousel(document.querySelector('.left-button'));
 new Carousel(document.querySelector('.right-button'));
-
-// console.log(carousel)
-// Array.from(carousel.children).forEach(item => {
-//   new Carousel(item)
-// })
 
 
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
