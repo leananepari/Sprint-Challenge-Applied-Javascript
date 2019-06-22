@@ -300,15 +300,10 @@ body {
 }
 .carousel img {
   width: 100%;
-  position: absolute;
-  margin-left: 200%;
-  transition: margin 5000ms;
+  display: none;
 }
 .carousel .selected {
   width: 100%;
   display: block;
-  margin-left: 0%;
-}
-.carousel .slide-left {
-  margin-left: -200%;
+  transition: opacity 1s ease-in-out;
 }
