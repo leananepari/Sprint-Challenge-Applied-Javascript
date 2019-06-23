@@ -11,25 +11,33 @@ class Carousel {
   handleLeft(event) {
     event.preventDefault();
     if (this.state === 1) {
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.remove('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.remove('active');
       this.state = 4;
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.add('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.add('active');
     } else {
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.remove('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.remove('active');
       --this.state;
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.add('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.add('active');
     }
   }
   handleRight(event) {
     event.preventDefault()
     if (this.state === 4) {
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.remove('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.remove('active');
       this.state = 1;
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.add('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.add('active');
     } else {
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.remove('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.remove('active');
       ++this.state;
-      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
+      this.element.querySelector(`.img[data-img="${this.state}"]`).classList.add('selected');
+      document.querySelector(`.dot[data-dot="${this.state}"]`).classList.add('active');
     }
   }
 }
