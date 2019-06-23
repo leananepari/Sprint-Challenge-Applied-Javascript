@@ -1,45 +1,41 @@
-let state = 1;
-
 class Carousel {
   constructor(element) {
     this.element = element;
-    this.element.addEventListener('click', () => this.handleClick(event))
+    this.state = 1;
+    this.left = element.querySelector('.left-button');
+    this.right = element.querySelector('.right-button');
+    this.left.addEventListener('click', () => this.handleLeft(event));
+    this.right.addEventListener('click', () => this.handleRight(event));
   }
-  handleClick() {
-    if (this.element.className === 'left-button') {
-      this.handleLeft(event);
+
+  handleLeft(event) {
+    event.preventDefault();
+    if (this.state === 1) {
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.state = 4;
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
     } else {
-      this.handleRight(event);
-    }
-  }
-  handleLeft() {
-    if (state === 1) {
-      document.querySelector(`.img[data-num="${state}"]`).classList.remove('selected');
-      state = 4;
-      document.querySelector(`.img[data-num="${state}"]`).classList.add('selected')
-    } else {
-      document.querySelector(`.img[data-num="${state}"]`).classList.remove('selected');
-      --state;
-      document.querySelector(`.img[data-num="${state}"]`).classList.add('selected')
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      --this.state;
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected')
     }
   }
   handleRight(event) {
     event.preventDefault()
-    if (state === 4) {
-      document.querySelector(`.img[data-num="${state}"]`).classList.remove('selected');
-      state = 1;
-      document.querySelector(`.img[data-num="${state}"]`).classList.add('selected');
+    if (this.state === 4) {
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      this.state = 1;
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
     } else {
-      document.querySelector(`.img[data-num="${state}"]`).classList.remove('selected');
-      ++state;
-      document.querySelector(`.img[data-num="${state}"]`).classList.add('selected');
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.remove('selected');
+      ++this.state;
+      this.element.querySelector(`.img[data-num="${this.state}"]`).classList.add('selected');
     }
   }
 }
 
-new Carousel(document.querySelector('.left-button'));
-new Carousel(document.querySelector('.right-button'));
-
+let carousel = document.querySelector('.carousel');
+console.log(new Carousel(carousel))
 
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
     1. You will need to grab a reference to the carousel, and in it grab the left and right buttons
