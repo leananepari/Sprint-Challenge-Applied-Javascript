@@ -1,7 +1,7 @@
 .carousel {
   .width-100();
   .flex(center, center);
-  height: 500px;
+  height: auto;
   position: relative;
   overflow: hidden;
   margin-top: 16px;
@@ -17,6 +17,7 @@
     position: absolute;
     width: 50px;
     height: 50px;
+    z-index:10;
     cursor: pointer;
     &:hover {
       color: @lambda-times-color-primary;
@@ -36,6 +37,38 @@
   }
   img {
     .width-100();
-    display: none;
+    opacity: 0;
+    transition: opacity 1.2s;
+    z-index: 9;
   }
+  .selected {
+    .width-100();
+    display: block;
+    margin: 0 0 0 0;
+    opacity: 1;
+    position: absolute;
+    z-index: 9;
+  }
+}
+
+.dot-wrap {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s linear;
+ 
+  .dot:hover {
+    background-color: #717171;
+  }
+}
+.active {
+  background-color: #717171;
 }
